@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Exercise evaluation</title>
+</head>
+
+<body>
+    <div class="eval" id="evalContainer">
+        <div id="expertScore">
+            <div id="msg">{{msg}}</div><br>
+            <div id="myProgress">
+            <div id="myBar"></div>
+            </div>
+            <div id="downloads">
+            <div id="outputMsg"></div><br>
+            <input type="submit" onclick="location.href='/download_video'" id="downloadBtn" value="Download Video"/>
+            <input type="submit" onclick="location.href='/download_data'" id="downloadBtn" value="Download Kinect 3D Data"/>
+            </div>
+            <div id="error">
+                <div id="errorMsg"></div><br>
+                <div id="buttons">
+                    <input type="submit" onclick="location.href='/eval_video'" id="returnBtn" value="Return"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" charset="utf-8">
+    function move(i) {
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    elem.style.width = i + "%";
+    }
+    var socket = io('http://0.0.0.0:5000');
+    socket.emit('waiting')
+    var tid = setInterval(heartbeat, 500);
+    function heartbeat() {
+        socket.emit('waiting')
+    }
+    socket.on('processed', function(arr){
+        console.log('processed')
+        clearInterval(tid);
+        document.querySelector("#outputMsg").innerHTML = "Frame Quality: " + arr[0] + " Exercise Quality: " + arr[1] + " Exercise Performance: " + arr[2];
+        document.querySelector("#downloads").style.visibility = "visible";
+    });
+    socket.on('processing', function(i){
+        console.log('received processing')
+        console.log(i)
+        move(i)
+    })
+    socket.on('error', function(message){
+        console.log('processed')
+        console.log('bad exercise')
+        clearInterval(tid)
+        document.querySelector("#msg").innerHTML = "Processed"
+        document.querySelector("#errorMsg").innerHTML = message;
+        document.querySelector("#error").style.display= "initial";
+    })
+</script>
+</body>
+
+</html>

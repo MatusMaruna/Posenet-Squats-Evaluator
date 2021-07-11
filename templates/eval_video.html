@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Exercise evaluation</title>
+</head>
+
+<body>
+    <div class="eval" id="evalContainer">
+        <form id="evalForm" action="/eval_video" method="post" enctype="multipart/form-data">
+            <input type="file" id="chosenFile" name="data_file" />
+            <input type="submit" id="submitBtn" onclick="move()" value="Submit data"/>
+        </form>
+        <div id="expertScore">
+            <div id="msg">{{msg}}</div><br>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

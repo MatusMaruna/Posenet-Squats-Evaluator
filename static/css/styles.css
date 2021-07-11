@@ -1,0 +1,160 @@
+html, body {
+    background-color: #171F24;
+    font-family: sans-serif;
+}
+
+#homeContainer, #evalContainer {
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-top: 160px;
+    width: 80%;
+    background-color: #1e2a31;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 13px 46px -19px rgba(0, 0, 0, 0.5);
+    border: 2px solid hsl(202.1, 24.1%, 16.5%);
+}
+
+#introText {
+    color: #fff;
+    text-align: center;
+    font-size: 35px;
+    padding: 20px;
+}
+
+#introText::before {
+    content: "- ";
+}
+
+#introText::after {
+    content: " -";
+}
+
+#buttons {
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+}
+
+#buttons a {
+    background: #65a9f2;
+    color: #171f24;
+    text-align: center;
+    margin: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 11px;
+    padding: 20px;
+    font-size: 21px;
+    transition: .4s all;
+    text-shadow: 1px 1px hsl(210.6, 42.7%, 73.4%);
+}
+
+#buttons a:hover {
+    opacity: .8;
+    filter: brightness(.9);
+}
+
+#chosenFile {
+    background-color: #1e2a31;
+    color: rgb(255, 255, 255);
+    padding: 10px 0;
+}
+
+#submitBtn {
+    background-color: #4173b4;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+    transition: .4s all;
+}
+
+#downloadBtn {
+    background-color: #32a84c;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+    transition: .4s all;
+}
+
+
+#returnBtn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+    transition: .4s all;
+}
+
+
+#downloads{
+    visibility: hidden;
+    padding-top: 20px;
+}
+
+#error{
+    display: none;
+    padding-top: 20px;
+    text-align:center;
+}
+
+
+#submitBtn:hover {
+    cursor: pointer;
+    opacity: .8;
+    filter: brightness(.9);
+}
+
+#downloadBtn:hover {
+    cursor: pointer;
+    opacity: .8;
+    filter: brightness(.9);
+}
+
+#expertScore, #weaklink {
+    color: white;
+    font-weight: bold;
+}
+
+#pred {
+    background-color: #1d262d;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: inset 0px 5px 14px -6px rgba(0, 0, 0, 0.75);
+    border: 2px solid hsl(202.1, 24.1%, 16.5%);
+    color: white;
+    transition: .3s all;
+    font-weight: bold;
+}
+
+#msg {
+    color: #f4d791;
+}
+
+
+span {
+    color: #4b96f9;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: green;
+}
